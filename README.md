@@ -182,21 +182,9 @@ docker build -t $DOCKER_IMAGE     --build-arg MHUB_MODELS_REPO=$MODELS_FORK_REPO
 docker run --rm -it --gpus all   -v $MODEL_BASE_DIR:/app/models/$MODEL_NAME   -v $DATA_DIR/input:/app/data/input_data:ro   -v $DATA_DIR/output:/app/data/output_data   $DOCKER_IMAGE --cleanup --debug --model $MODEL_NAME --config /app/models/$MODEL_NAME/config/test.yml
 ```
 
-### 13. Modify Configuration Without Rebuilding
 
-Modify `test.yml` as needed:
 
-```bash
-nano $MODEL_BASE_DIR/config/test.yml
-```
-
-Rerun:
-
-```bash
-docker run --rm -it --gpus all   -v $MODEL_BASE_DIR:/app/models/$MODEL_NAME   -v $DATA_DIR/input:/app/data/input_data:ro   -v $DATA_DIR/output:/app/data/output_data   $DOCKER_IMAGE --cleanup --debug --model $MODEL_NAME --config /app/models/$MODEL_NAME/config/test.yml
-```
-
-### 14. Commit and Push Changes
+### 13. Commit and Push Changes
 
 ```bash
 cd $MODELS_FORK_DIR
@@ -205,7 +193,7 @@ git commit -m "Add tmt2 model implementation with updated workflows"
 git push --set-upstream origin $MODEL_NAME
 ```
 
-### 15. Submit Your Model to MHub (Optional)
+### 14. Submit Your Model to MHub (Optional)
 
 Create a pull request from your fork to the `MHubAI/models` repository.
 
